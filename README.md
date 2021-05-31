@@ -4,6 +4,17 @@
 # About:
      A Simple Script to send SMS anonymously.
 
+# Installation:
+     1. For Linux Users:
+        a) git clone https://github.com/machine1337/fake-sms
+        b) cd fake-sms then chmod +x run.sh
+        
+     2. For Termux Users:
+        a) pkg update && pkg upgrade
+        b) pkg install git
+        c) git clone https://github.com/machine1337/fake-sms
+        d) cd fake-sms then chmod +x run.sh
+        
 # Usage:
      ./run.sh
 
