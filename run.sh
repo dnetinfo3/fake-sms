@@ -26,6 +26,17 @@ function banner(){
    
 }
 
+clear
+banner
+sleep 1
+echo -e ${CP}" ...........Checking Internet Connectivity.........."
+if [[ "$(ping -c 1 8.8.8.8 | grep '100% packet loss' )" != "" ]]; then
+  echo "No Internet Connection"
+  exit 1
+  else
+  echo "Internet is present"
+  
+fi
 function printmsg(){
 echo  -e ${RED}" Exiting FAKE-SMS SENDER... "
 sleep 1
@@ -38,7 +49,8 @@ function instruction(){
 echo -e ${YELLOW}"1. Your Country Code Must Be without "+"\n"
 echo -e ${BLUE}"2. Country Code Example: 92\n"
 echo -e ${ORANGE}"3. Your Phone Number Must be Start Without 0\n"
-echo -e ${CNC}"4. Full Usage: 923443210111"
+echo -e ${CNC}"4. Full Usage: 923443210111\n"
+echo -e ${RED}" ..........NOTE: Only One Text Message Is Allowed Per Day..........."
 }
 
 function SENDSMS() {
@@ -80,13 +92,23 @@ function SENDSMS() {
       printmsg
    fi
 }
-
+function STATUSCHECK(){
+echo -e -n ${ORANGE}"Enter Text ID (e.g 123456): "
+read ID
+STATUSCONFIRM=$(curl -# https://textbelt.com/status/"$ID")
+echo -e ${PINK}" Final Response (JSON): "
+   echo " "
+   echo -e ${PINK}" ---------------------------------------------- $NC"
+   echo "$STATUSCONFIRM"
+   echo -e ${PINK}"------------------------------------------------- $NC"
+}
 menu(){
 clear
 banner
-echo -e " \n${NC}[${CG}"1"${NC}]${CNC} See Usage"
+echo -e " \n${NC}[${CG}"1"${NC}]${CNC} SEE USAGE "
 echo -e "${NC}[${CG}"2"${NC}]${CNC} Send Fake SMS"
-echo -e "${NC}[${CG}"3"${NC}]${CNC} Exit "
+echo -e "${NC}[${CG}"3"${NC}]${CNC} CHECK SMS STATUS "
+echo -e "${NC}[${CG}"4"${NC}]${CNC} EXIT "
 echo -n -e ${RED}"\n[+] Select: "
 read play
    if [ $play -eq 1 ]; then
@@ -94,7 +116,10 @@ read play
    elif [ $play -eq 2 ]; then
           SENDSMS
    elif [ $play -eq 3 ]; then
+          STATUSCHECK
+   elif [ $play -eq 4 ]; then
           exit
+         
       fi
 }
 menu
