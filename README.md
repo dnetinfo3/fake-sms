@@ -29,7 +29,11 @@
 # Note:
      Use this script only for Educational Purpose.
      
- 
+ # This Tool Tested On:
+     1. Parrot OS
+     2. Kali Linux
+     3. android ( Termux )
+     
 # Credit:
      If You Like This Tool then Kindly Give us a star. Thanks.....
      
