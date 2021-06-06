@@ -31,9 +31,10 @@ echo -e ${GREEN}"             https://facebook.com/unknownclay            #"
 echo -e ${RED}"##########################################################"
    
 }
+resize -s 38 70 > /dev/null
 function dependencies(){
 echo -e ${PINK}
-sudo cat /etc/issue.net
+cat /etc/issue.net
 
 
 echo "Checking dependencies configuration " 
@@ -56,14 +57,14 @@ echo -e ${YELLOW} "[ ! ] Installing curl "
 sudo apt-get install curl
 echo -e ${BLUE} "[ ✔ ] Done installing ...."
 which curl > /dev/null 2>&1
-sleep 2
+sleep 1
 fi
-sleep 2
+sleep 1
 which git > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
 echo -e ${GREEN} "\n[ ✔ ] git.............${GREEN}[ found ]"
 which git > /dev/null 2>&1
-sleep 2
+sleep 1
 else
 echo -e $red "[ X ] git  -> ${RED}not found "
 echo -e ${YELLOW} "[ ! ] Installing git "
@@ -71,7 +72,7 @@ pkg update && pkg upgrade  > /dev/null 2>&1
 pkg install git > /dev/null 2>&1
 echo -e ${BLUE} "[ ✔ ] Done installing ...."
 which git > /dev/null 2>&1
-sleep 2
+sleep 1
 fi
 sleep 1
 }
