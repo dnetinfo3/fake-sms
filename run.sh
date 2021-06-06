@@ -49,22 +49,16 @@ sleep 1
 which curl > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
 echo -e ${GREEN} "\n[ ✔ ] curl.............${GREEN}[ found ]"
-which curl > /dev/null 2>&1
-sleep 1
 else
 echo -e $red "[ X ] curl  -> ${RED}not found "
 echo -e ${YELLOW} "[ ! ] Installing curl "
 sudo apt-get install curl
 echo -e ${BLUE} "[ ✔ ] Done installing ...."
-which curl > /dev/null 2>&1
-sleep 1
 fi
 sleep 1
 which git > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
 echo -e ${GREEN} "\n[ ✔ ] git.............${GREEN}[ found ]"
-which git > /dev/null 2>&1
-sleep 1
 else
 echo -e $red "[ X ] git  -> ${RED}not found "
 echo -e ${YELLOW} "[ ! ] Installing git "
@@ -86,11 +80,11 @@ exit
 
 function instruction(){
 
-echo -e ${YELLOW}"1. Your Country Code Must Be without "+"\n"
+echo -e ${YELLOW}"\n1. Your Country Code Must Be without "+"\n"
 echo -e ${BLUE}"2. Country Code Example: 92\n"
 echo -e ${ORANGE}"3. Your Phone Number Must be Start Without 0\n"
 echo -e ${CNC}"4. Full Usage: 923443210111\n"
-echo -e ${RED}" ..........NOTE: Only One Text Message Is Allowed Per Day..........."
+echo -e ${RED}" ..........NOTE: Only One Text Message Is Allowed Per Day...........\n"
 }
 
 function SENDSMS() {
@@ -133,7 +127,7 @@ function SENDSMS() {
    fi
 }
 function STATUSCHECK(){
-echo -e -n ${ORANGE}"Enter Text ID (e.g 123456): "
+echo -e -n ${ORANGE}"\nEnter Text ID (e.g 123456): "
 read ID
 STATUSCONFIRM=$(curl -# https://textbelt.com/status/"$ID")
 echo -e ${PINK}" Final Response (JSON): "
