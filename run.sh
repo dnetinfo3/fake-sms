@@ -16,13 +16,19 @@ CN='\033[1;38;5;247m'
 CNC='\033[1;38;5;051m'
 
 function banner(){
-   echo -e ${CNC}"##########################################################"                                                    
-   echo -e ${RED} "          FAKE-SMS SENDER                               #"
-   echo -e ${CG}"            https://facebook.com/unknownclay             #"
-   echo -e ${CP}"            Coded By:  Machine1337	                 #"
-   echo -e ${RED}" WARNING: USE THIS SCRIPT ONLY FOR EDUCATIONAL PURPOSE   #"
-   echo -e ${RED}"          I WILL NOT BE RESPONSIBLE FOR ANY KIND OF SHIT #"
-   echo -e ${CPO}"##########################################################"
+echo -e ${RED}"##########################################################"                                                    
+echo -e ${CP}"     _____     _             ____  __  __ ____           #"    
+echo -e ${CP}"    |  ___|_ _| | _____     / ___||  \/  / ___|          #"
+echo -e ${CP}"    | |_ / _  | |/ / _ \____\___ \| |\/| \___ \          #"
+echo -e ${CP}"    |  _| (_| |   <  __/_____|__) | |  | |___) |         #"
+echo -e ${CP}"    |_|  \__,_|_|\_\___|    |____/|_|  |_|____/          #"
+echo -e ${BLUE}"                                                         #"
+echo -e ${BLUE}"      A Small Tool To Send Messages Anonymously          #"
+echo -e ${RED}"   WARNING: Use this Tool Only For Educational Purpose   #"
+echo -e ${RED}"             I Will Not Be Responsible For Your Shit     #"
+echo -e ${YELLOW}"            Coded By: Machine404                         #"
+echo -e ${GREEN}"             https://facebook.com/unknownclay            #"
+echo -e ${RED}"##########################################################"
    
 }
 
