@@ -31,18 +31,51 @@ echo -e ${GREEN}"             https://facebook.com/unknownclay            #"
 echo -e ${RED}"##########################################################"
    
 }
+function dependencies(){
+echo -e ${PINK}
+sudo cat /etc/issue.net
 
-clear
-banner
+
+echo "Checking dependencies configuration " 
 sleep 1
-echo -e ${CP}" ...........Checking Internet Connectivity.........."
 if [[ "$(ping -c 1 8.8.8.8 | grep '100% packet loss' )" != "" ]]; then
-  echo "No Internet Connection"
+  echo ${RED}"No Internet Connection"
   exit 1
   else
-  echo "Internet is present"
-  
+  echo -e ${GREEN} "\n[ ✔ ] Internet.............${GREEN}[ working ]"
 fi
+sleep 1
+which curl > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+echo -e ${GREEN} "\n[ ✔ ] curl.............${GREEN}[ found ]"
+which curl > /dev/null 2>&1
+sleep 1
+else
+echo -e $red "[ X ] curl  -> ${RED}not found "
+echo -e ${YELLOW} "[ ! ] Installing curl "
+sudo apt-get install curl
+echo -e ${BLUE} "[ ✔ ] Done installing ...."
+which curl > /dev/null 2>&1
+sleep 2
+fi
+sleep 2
+which git > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+echo -e ${GREEN} "\n[ ✔ ] git.............${GREEN}[ found ]"
+which git > /dev/null 2>&1
+sleep 2
+else
+echo -e $red "[ X ] git  -> ${RED}not found "
+echo -e ${YELLOW} "[ ! ] Installing git "
+pkg update && pkg upgrade  > /dev/null 2>&1
+pkg install git > /dev/null 2>&1
+echo -e ${BLUE} "[ ✔ ] Done installing ...."
+which git > /dev/null 2>&1
+sleep 2
+fi
+sleep 1
+}
+
 function printmsg(){
 echo  -e ${RED}" Exiting FAKE-SMS SENDER... "
 sleep 1
@@ -108,9 +141,24 @@ echo -e ${PINK}" Final Response (JSON): "
    echo "$STATUSCONFIRM"
    echo -e ${PINK}"------------------------------------------------- $NC"
 }
+trap ctrl_c INT
+ctrl_c() {
+clear
+echo -e ${RED}"[*] (Ctrl + C ) Detected, Trying To Exit... "
+echo -e ${RED}"[*] Stopping Services... "
+sleep 1
+echo ""
+echo -e ${YELLOW}"[*] Thanks For Using Fake-SMS  :)"
+exit
+}
 menu(){
+
+clear
+dependencies
 clear
 banner
+
+
 echo -e " \n${NC}[${CG}"1"${NC}]${CNC} SEE USAGE "
 echo -e "${NC}[${CG}"2"${NC}]${CNC} Send Fake SMS"
 echo -e "${NC}[${CG}"3"${NC}]${CNC} CHECK SMS STATUS "
