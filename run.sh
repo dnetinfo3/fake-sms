@@ -81,13 +81,29 @@ exit
 function instruction(){
 
 echo -e ${YELLOW}"\n1. Your Country Code Must Be without "+"\n"
+sleep 0.5
 echo -e ${BLUE}"2. Country Code Example: 92\n"
+sleep 0.5
 echo -e ${ORANGE}"3. Your Phone Number Must be Start Without 0\n"
+sleep 0.5
 echo -e ${CNC}"4. Full Usage: 923443210111\n"
+sleep 0.5
 echo -e ${RED}" ..........NOTE: Only One Text Message Is Allowed Per Day...........\n"
+sleep 0.5
+echo -e -n ${BLUE}"\nBack to SENDSMS OPTION: [y/n]: "
+read back_press
+if [ $back_press = "y"  ]; then
+         SENDSMS
+elif [ $back_press = "n" ]; then
+              exit
+     fi
+
+
 }
 
 function SENDSMS() {
+    clear
+    banner
     echo ""
    echo -e ${ORANGE}"Enter Phone Number with County Code like (923441212012)\n"
    echo -e -n ${CP}"Enter Phone Number With Country Code: "
@@ -146,6 +162,8 @@ echo ""
 echo -e ${YELLOW}"[*] Thanks For Using Fake-SMS  :)"
 exit
 }
+
+
 menu(){
 
 clear
