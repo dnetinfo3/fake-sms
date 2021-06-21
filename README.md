@@ -34,6 +34,9 @@
      2. Kali Linux
      3. android ( Termux )
      
+# video:
+https://www.youtube.com/channel/UCC_aPnmV_zGfdwktCFE9cPQ
+     
 # Credit:
      If You Like This Tool then Kindly Give us a star. Thanks.....
      
