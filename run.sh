@@ -1,4 +1,4 @@
-#!/data/ data/com.termux / files / usr / bin / bash
+#!/bin/bash
 NC='\033[0m'
 RED='\033[1;38;5;196m'
 GREEN='\033[1;38;5;040m'
