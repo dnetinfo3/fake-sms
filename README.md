@@ -28,6 +28,8 @@
      
 # Note:
      Use this script only for Educational Purpose.
+     *) If u get the error like Your number was not provided in the E.164 format so wait for sometime.....
+        the error is on the server side and will fix soon:)
      
  # This Tool Tested On:
      1. Parrot OS
